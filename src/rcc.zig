@@ -49,4 +49,4 @@ const RCC_t = packed struct {
     DCKCFGR2: u32,
 };
 
-pub const RCC: *volatile RCC_t = @ptrFromInt(0x400234800);
+pub const RCC: *volatile RCC_t = @ptrFromInt(0x40023800);
