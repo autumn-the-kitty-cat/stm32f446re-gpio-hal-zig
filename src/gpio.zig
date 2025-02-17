@@ -1,34 +1,38 @@
-const MODE = enum(u2) {
+/// These bits are written by software to configure the I/O direction mode.
+pub const MODE = enum(u2) {
     Input,
     Output,
     Alternate,
     Analog,
 };
 
-const OTYPE = enum(u1) {
+/// These bits are written by software to configure the output type of the I/O port.
+pub const OTYPE = enum(u1) {
     PushPull,
     OpenDrain,
 };
 
-const OSPEED = enum(u2) {
+/// These bits are written by software to configure the I/O output speed.
+pub const OSPEED = enum(u2) {
     LowSpeed,
     MediumSpeed,
     FastSpeed,
     HighSpeed,
 };
 
-const PUPD = enum(u2) {
+/// These bits are written by software to configure the I/O pull-up or pull-down
+pub const PUPD = enum(u2) {
     NoPUPD,
     PullUp,
     PullDown,
 };
 
-const LCKK = enum(u1) {
+pub const LCKK = enum(u1) {
     NotLocked,
     Locked,
 };
 
-const AFR = enum(u4) {
+pub const AFR = enum(u4) {
     AF0,
     AF1,
     AF2,
@@ -217,6 +221,8 @@ const GPIO = packed struct {
         LCKK13: LCKK,
         LCKK14: LCKK,
         LCKK15: LCKK,
+        LCKK16: LCKK,
+        __reserved0: u15,
     },
 
     AFRL: packed struct {
@@ -241,3 +247,12 @@ const GPIO = packed struct {
         AFRH15: AFR,
     },
 };
+
+pub const GPIOA: *volatile GPIO = @ptrFromInt(0x40020000);
+pub const GPIOB: *volatile GPIO = @ptrFromInt(0x40020400);
+pub const GPIOC: *volatile GPIO = @ptrFromInt(0x40020800);
+pub const GPIOD: *volatile GPIO = @ptrFromInt(0x40020C00);
+pub const GPIOE: *volatile GPIO = @ptrFromInt(0x40021000);
+pub const GPIOF: *volatile GPIO = @ptrFromInt(0x40021400);
+pub const GPIOG: *volatile GPIO = @ptrFromInt(0x40021800);
+pub const GPIOH: *volatile GPIO = @ptrFromInt(0x40021C00);
