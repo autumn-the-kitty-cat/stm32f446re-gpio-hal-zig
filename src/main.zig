@@ -4,7 +4,8 @@ const gpio = @import("gpio.zig");
 const rcc = @import("rcc.zig");
 
 pub fn main() !void {
-    // TODO: enable clock access
+    // Enable clock access
+    rcc.RCC.AHB1ENR.GPIOAEN = 1;
 
     // Set PA5 to output
     gpio.GPIOA.MODER.MODER5 = gpio.MODE.Output;
