@@ -51,7 +51,7 @@ pub const AFR = enum(u4) {
     AF15,
 };
 
-const GPIO = packed struct {
+const GPIO_t = packed struct {
     MODER: packed struct {
         MODER0: MODE,
         MODER1: MODE,
@@ -248,11 +248,11 @@ const GPIO = packed struct {
     },
 };
 
-pub const GPIOA: *volatile GPIO = @ptrFromInt(0x40020000);
-pub const GPIOB: *volatile GPIO = @ptrFromInt(0x40020400);
-pub const GPIOC: *volatile GPIO = @ptrFromInt(0x40020800);
-pub const GPIOD: *volatile GPIO = @ptrFromInt(0x40020C00);
-pub const GPIOE: *volatile GPIO = @ptrFromInt(0x40021000);
-pub const GPIOF: *volatile GPIO = @ptrFromInt(0x40021400);
-pub const GPIOG: *volatile GPIO = @ptrFromInt(0x40021800);
-pub const GPIOH: *volatile GPIO = @ptrFromInt(0x40021C00);
+pub const GPIOA: *volatile GPIO_t = @ptrFromInt(0x40020000);
+pub const GPIOB: *volatile GPIO_t = @ptrFromInt(0x40020400);
+pub const GPIOC: *volatile GPIO_t = @ptrFromInt(0x40020800);
+pub const GPIOD: *volatile GPIO_t = @ptrFromInt(0x40020C00);
+pub const GPIOE: *volatile GPIO_t = @ptrFromInt(0x40021000);
+pub const GPIOF: *volatile GPIO_t = @ptrFromInt(0x40021400);
+pub const GPIOG: *volatile GPIO_t = @ptrFromInt(0x40021800);
+pub const GPIOH: *volatile GPIO_t = @ptrFromInt(0x40021C00);
